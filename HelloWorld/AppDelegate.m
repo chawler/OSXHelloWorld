@@ -11,9 +11,17 @@
 @interface AppDelegate ()
 
 @property (weak) IBOutlet NSWindow *window;
+@property (weak) IBOutlet NSTextField *message;
+@property (weak) IBOutlet NSTextField *yourname;
+
 @end
 
 @implementation AppDelegate
+
+- (IBAction)submit:(id)sender {
+    NSString *name = self.yourname.stringValue;
+    [self.message setStringValue:[NSString stringWithFormat:@"欢迎，%@", name]];
+}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
